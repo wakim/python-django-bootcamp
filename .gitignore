@@ -101,3 +101,4 @@ ENV/
 .mypy_cache/
 
 .vagrant
+Miniconda3-latest-Linux-x86_64.sh
