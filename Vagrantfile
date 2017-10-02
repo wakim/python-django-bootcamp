@@ -28,6 +28,8 @@ Vagrant.configure("2") do |django_config|
   django_config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
   django_config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1"
 
+  django_config.vm.provision "file", source: "./django_course.yml", destination: "django_course.yml"
+
   # kickoff a shell script to install Python essentials
   django_config.vm.provision :shell, path: "vagrant_bootstrap.sh"
 end
