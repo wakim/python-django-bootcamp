@@ -3,4 +3,5 @@ from first_app import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^fox/', views.fox, name='index'),
 ]

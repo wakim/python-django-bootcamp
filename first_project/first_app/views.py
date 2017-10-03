@@ -6,3 +6,6 @@ from django.http import HttpResponse
 def index(request):
     params = {'insert_me': 'Hello i\'m from views.py!'}
     return render(request, 'first_app/index.html', context=params)
+
+def fox(request):
+    return render(request, 'first_app/fox.html')
