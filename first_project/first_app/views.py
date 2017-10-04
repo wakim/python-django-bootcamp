@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 from first_app.models import *
 
@@ -10,3 +11,9 @@ def index(request):
     date_dic = {'access_records': webpages_list}
 
     return render(request, 'first_app/index.html', date_dic)
+
+def users(request):
+    users = User.objects.order_by('id')
+    params = {'users': users}
+
+    return render(request, 'first_app/users.html', params)
