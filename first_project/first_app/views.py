@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from first_app.models import *
+
 # Create your views here.
 
 def index(request):
-    params = {'insert_me': 'Hello i\'m from views.py!'}
-    return render(request, 'first_app/index.html', context=params)
+    webpages_list = AccessRecord.objects.order_by('date')
+    date_dic = {'access_records': webpages_list}
 
-def fox(request):
-    return render(request, 'first_app/fox.html')
+    return render(request, 'first_app/index.html', date_dic)
