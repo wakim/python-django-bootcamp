@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Signup</title>
+    <link rel='stylesheet' href="{% static 'css/signup.css' %}" />
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  </head>
+  <body>
+    <div class='form-container panel panel-primary'>
+      <div class="panel-heading">Signup</div>
+      <form method="post">
+        <div class='panel-body'>
+          {{ form.non_field_errors }}
+          {% for field in form %}
+            <div class='form-group'>
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+                {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+            </div>
+          {% endfor %}
+          {% csrf_token %}
+        </div>
+        <div class="panel-footer">
+          <input type="submit" value="Signup" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
