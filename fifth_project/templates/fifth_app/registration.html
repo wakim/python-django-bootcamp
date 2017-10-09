@@ -1,0 +1,26 @@
+{% extends "fifth_app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+<div class="jumbotron">
+  {% if registered %}
+  <h1>Thank you for registering!</h1>
+  {% else %}
+  <h1>Register Here!</h1>
+  <h3>Fill out the form:</h3>
+
+  <form method="POST" enctype="multipart/form-data">
+    <table>
+    {{ user_form.as_table }}
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    {{ profile_form.as_table }}
+    </table>
+    {% csrf_token %}
+    <input type="submit" value="Send" />
+  </form>
+  {% endif %}
+</div>
+{% endblock %}
